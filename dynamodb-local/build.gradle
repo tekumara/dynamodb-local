@@ -1,0 +1,13 @@
+apply plugin:'java'
+
+repositories {
+    mavenCentral()
+    maven { url "https://s3-us-west-2.amazonaws.com/dynamodb-local/release" }
+}
+
+dependencies {
+    // sqlite4java is used by DynamoDBLocal and looks for native libraries in the same dir
+    // so they've been placed together in lib instead of relying on them via transitive dependency
+    compile "com.amazonaws:DynamoDBLocal:1.11.119" exclude group: "com.almworks.sqlite4java"
+    compile fileTree(dir: 'lib', include: '*.jar')
+}

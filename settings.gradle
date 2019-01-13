@@ -1,0 +1,5 @@
+include 'dynamodb-local'
+include 'app'
+
+rootProject.name = 'dynamodb-local'
+
